@@ -9,10 +9,11 @@ An ALU is the core brain inside a computer's CPU that does all the math and logi
 * `barrelshifter_code.v` – Submodule executing low-latency data bit-shifting.
 * `alu_testcode.v` – The top-level verification environment (`alu_32_bit_tb`) containing the main execution stimuli.
 * `signal.gtkw` – Preserved GTKWave interface configurations for targeted signal monitoring.
+* `run.ys` – A script file used by Yosys to synthesize the design and convert the Verilog code into logic gates.
 
 # Compilation & Simulation
 
-This project is built in Visual studio code and simulated using Icarus Verilog (`iverilog`) and visualized through GTKWave.
+This project is built in Visual studio code and simulated using Icarus Verilog, visualized through GTKWave and synthesized in Yosys through EDA playground.
 
 # 1. Compile the Hardware Design
 Run the compilation block by referencing the top-level testbench module:
@@ -26,9 +27,12 @@ Execute the compiled design using VVP to generate the target waveform database (
 vvp unified_system.out
 ```
 
-### 3. Open Waveforms in GTKWave
+# 3. Open Waveforms in GTKWave
 Analyze signal transitions, register behaviors, and flag configurations directly via the timing analyzer tool:
 ```
 gtkwave alu_system_wave.vcd
 ```
+# 4. Synthesize with Yosys (EDA Playground): 
+Select Yosys under Tools, check Run Synthesis, and click Run.
+
 
