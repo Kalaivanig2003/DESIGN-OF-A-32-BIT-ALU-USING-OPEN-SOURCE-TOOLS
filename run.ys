@@ -1,0 +1,11 @@
+# Read your design file
+read_verilog -sv design.sv
+
+# Check the design hierarchy and explicitly set your top module
+hierarchy -top alu_32_bit
+
+# Run standard synthesis optimization passes
+proc; opt; memory; opt; fsm; opt;
+
+# Generate the schematic file manually and save it to the workspace
+show -colors 1 -format svg -prefix alu_schematic alu_32_bit
