@@ -32,7 +32,7 @@ module alu_32_bit(
       .done(mul_done)
   );
 
-  // Instantiation of your verified Logarithmic Barrel Shifter module
+  // Instantiation of Logarithmic Barrel Shifter module
   // in_b[6:2] extracts the 5-bit shift amount (0 to 31)
   // in_b[1:0] extracts the 2-bit shift type (LSL, LSR, ASR, ROR)
   barrel_shifter_32bit barrel_inst (
@@ -42,9 +42,9 @@ module alu_32_bit(
       .data_out(barrel_out)
   );
 
-  // =========================================================================
+  
   // 2. BUS ROUTING AND ALU OPERATION SELECT
-  // =========================================================================
+
   always @(*) begin
     // Reset defaults to prevent hardware latches
     temp       = 33'b0;
@@ -74,15 +74,15 @@ module alu_32_bit(
       // Booth Multiplier Sub-Module Connection
       3'b011: alu_out = booth_out[31:0]; 
       
-      // Bitwise OR (FIX: Corrected literal width prefix from 4'b100 to 3'b100)
+      // Bitwise OR 
       3'b100: alu_out = in_a | in_b;   
       
       // Barrel Shifter Sub-Module Connection (Replaces old XOR)
       3'b101: alu_out = barrel_out;    
       
       // Fixed 1-bit shifts
-      3'b110: alu_out = in_a&in_b;     // Logical AND
-      3'b111: alu_out = in_a^in_b;     // Logical XOR
+      3'b110: alu_out = in_a&in_b;     // Bitwise AND
+      3'b111: alu_out = in_a^in_b;     // Bitwise XOR
       default: alu_out = 32'b1;         
     endcase
     
