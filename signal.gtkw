@@ -1,0 +1,34 @@
+[*]
+[*] GTKWave Analyzer Configuration Saved Session File
+[*]
+[dumpfile] "alu_system_wave.vcd"
+[savefile] "signals.gtkw"
+[timeline] 0
+@200
+-SYSTEM MANAGEMENT
+@28
++ tb_barrel_shifter_32bit.clk
++ tb_barrel_shifter_32bit.rst
+@200
+-OPERANDS & COMMANDS
+@22
++ tb_barrel_shifter_32bit.in_a[31:0]
++ tb_barrel_shifter_32bit.in_b[31:0]
+@28
++ [COLOR] 2 tb_barrel_shifter_32bit.op[2:0]
+@200
+-SUB-MODULE INTERMEDIATE ROUTING
+@22
++ [COLOR] 3 tb_barrel_shifter_32bit.uut.booth_out[63:0]
++ [COLOR] 3 tb_barrel_shifter_32bit.uut.barrel_out[31:0]
+@28
++ tb_barrel_shifter_32bit.mul_done
++ tb_barrel_shifter_32bit.mul_start
+@200
+-ALU SYSTEM MAIN OUTPUTS
+@22
++ [COLOR] 1 tb_barrel_shifter_32bit.alu_out[31:0]
+@28
++ tb_barrel_shifter_32bit.zero
++ tb_barrel_shifter_32bit.carry
++ tb_barrel_shifter_32bit.overflow
